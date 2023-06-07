@@ -25,6 +25,7 @@ jobs:
    - name: Login to the Registry
      uses: docker/login-actions@v1
      with:
+      registry: https://hub.docker.com
       username: $((secrets.registry_username))
       password: $((secrets.registry.password))
       
@@ -39,6 +40,7 @@ jobs:
    - name: Build and Push the image
      uses: dokcer/build-push-acton@v2.11.0
      with:
+      registry: ttps://hub.docker.com
       context: .
       push: true
       tags: ${{secrets.registry_username}}/${{inputs.image_name}}:${{env.final_tag}}

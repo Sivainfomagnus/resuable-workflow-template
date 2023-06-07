@@ -8,9 +8,9 @@ on:
    tag:
     type: string
   secrets:
-   regstry_username:
+   REGISTRY_USERNAME:
     required: true
-   registry_password:
+   REGISTRY_PASSWORD:
     required: true
 jobs:
  build:

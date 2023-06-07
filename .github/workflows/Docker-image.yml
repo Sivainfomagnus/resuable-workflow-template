@@ -45,6 +45,5 @@ jobs:
       
  do_something_else:
   runs-on: ubuntu-latest
-  
   steps:
    - run: echo "Hello"

@@ -20,6 +20,3 @@ jobs:
   with:
    image_name: my-awesome-app
    tag: $GITHUB-RUN-NUMBER
-  secrets:
-   registry_username: ${{secrets.REGISTRY_USERNAME}}
-   registry_password: ${{secrets.REGISTRY_PASSWORD}}

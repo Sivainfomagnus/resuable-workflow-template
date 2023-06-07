@@ -30,7 +30,7 @@ jobs:
       
    - name: Set the tag
      run: |
-      if [ -z "${{input.tag}}"]
+      if [ -z "${{inputs.tag}}"]
       then
        echo "final_tag-latest" >> $GITHUB_ENV
       else

@@ -37,7 +37,7 @@ jobs:
        echo "final_tag-${{inputs.tag}}" >> $GITHUB_ENV
       fi
    - name: Build and Push the image
-     uses: dokcer/build-push-acton@v2
+     uses: dokcer/build-push-acton@v2.11.0
      with:
       context: .
       push: true

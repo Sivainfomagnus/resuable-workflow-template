@@ -42,6 +42,7 @@ jobs:
       context: .
       push: true
       tags: ${{secrets.registry_username}}/${{inputs.image_name}}:${{env.final_tag}}
+      dockerfile: Sivainfomagnus/resuable-workflow-template/Dockerfile
       
  do_something_else:
   runs-on: ubuntu-latest

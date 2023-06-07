@@ -20,7 +20,7 @@ jobs:
    - uses: actions/checkout@v2
    
    - name: Setup BuildX
-     uses: docker/setup-buildx-action@v1
+     uses: docker/setup-buildx-action@v1.7.0
      
    - name: Login to the Registry
      uses: docker/login-actions@v1

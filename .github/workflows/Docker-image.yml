@@ -38,13 +38,10 @@ jobs:
        echo "final_tag-${{inputs.tag}}" >> $GITHUB_ENV
       fi
    - name: Build and Push the image
-     uses: docker/build-push-acton@v2.11.0
-     with:
-      registry: https://hub.docker.com
-      context: .
-      push: true
-      tags: ${{secrets.registry_username}}/${{inputs.image_name}}:${{env.final_tag}}
+     run: |
+     
       dockerfile: Sivainfomagnus/resuable-workflow-template/Dockerfile
+                  docker build -t my-web-awesome-app:1.0 .
       
  do_something_else:
   runs-on: ubuntu-latest

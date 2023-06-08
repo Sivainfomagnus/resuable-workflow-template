@@ -17,5 +17,3 @@ jobs:
      
  docker:
   uses: Sivainfomagnus/resuable-workflow-template/.github/workflows/Docker-image.yml@main
-  with:
-   image_name: my-awesome-app

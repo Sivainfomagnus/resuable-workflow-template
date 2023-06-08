@@ -12,10 +12,7 @@ jobs:
      uses: docker/setup-buildx-action@v1
      
    - name: Build and Push the image
-     uses: docker/build-push-acton@v2
-     with:
-      context: .
-      dockerfile: ./Sivainfomagnus/resuable-workflow-template/Dockerfile
+     run: docker build -t myapp:1.0 /Sivainfomagnus/resuable-workflow-template/Dockerfile
       
  do_something_else:
   runs-on: ubuntu-latest

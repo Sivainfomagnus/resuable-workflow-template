@@ -8,9 +8,9 @@ on:
    tag:
     type: string
   secrets:
-   DOCKERHUB_USERNAME:
+   registry_username:
     required: true
-   DOCKERHUB_PASSWORD:
+   registry_password:
     required: true
 jobs:
  build:
@@ -25,8 +25,9 @@ jobs:
    - name: Login to the Registry
      uses: docker/login-action@v1
      with:
-      username: $((secrets.DOCKERHUB_USERNAME))
-      password: $((secrets.DOCKERHUB_PASSWORD))
+      registry: https://hub.docker.com
+      username: $((secrets.registry_username))
+      password: $((secrets.registry.password))
       
    - name: Set the tag
      run: |
@@ -37,10 +38,13 @@ jobs:
        echo "final_tag-${{inputs.tag}}" >> $GITHUB_ENV
       fi
    - name: Build and Push the image
-     run: |
-     
+     uses: docker/build-push-acton@v2.11.0
+     with:
+      registry: https://hub.docker.com
+      context: .
+      push: true
+      tags: ${{secrets.registry_username}}/${{inputs.image_name}}:${{env.final_tag}}
       dockerfile: Sivainfomagnus/resuable-workflow-template/Dockerfile
-                  docker build -t my-web-awesome-app:1.0 .
       
  do_something_else:
   runs-on: ubuntu-latest

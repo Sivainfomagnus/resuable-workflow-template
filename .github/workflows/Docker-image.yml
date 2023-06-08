@@ -13,6 +13,15 @@ jobs:
      
    - name: Build the docker image
      run: docker build -t myapp:1.0 .
+   - name: Build and Push the image
+     uses: docker/build-push-acton@v2.7.0
+     with:
+      context: .
+      file: Sivainfomagnus/resuable-workflow-template/Dockerfile
+      push: true
+     env:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKERHUB_ACCESS_TOKEN: ${{secrets.DOCKERHUB_ACCESS_TOKEN}}
       
  do_something_else:
   runs-on: ubuntu-latest

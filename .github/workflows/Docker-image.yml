@@ -10,7 +10,7 @@ on:
   secrets:
    DOCKERHUB_USERNAME:
     required: true
-   DOCKERHUB_PASSWORD:
+   DOCKERHUB_ACCESS_TOKEN:
     required: true
 jobs:
  build:
@@ -27,7 +27,7 @@ jobs:
      with:
       registry: https://hub.docker.com
       username: $((secrets.DOCKERHUB_USERNAME))
-      password: $((secrets.DOCKERHUB_PASSWORD))
+      password: $((secrets.DOCKERHUB_ACCESS_TOKEN))
       
    - name: Set the tag
      run: |
@@ -43,7 +43,7 @@ jobs:
       registry: https://hub.docker.com
       context: .
       push: true
-      tags: ${{secrets.registry_username}}/${{inputs.image_name}}:${{env.final_tag}}
+      tags: ${{secrets.DOCKERHUB_USERNAME}}/${{inputs.image_name}}:${{env.final_tag}}
       dockerfile: Sivainfomagnus/resuable-workflow-template/Dockerfile
       
  do_something_else:

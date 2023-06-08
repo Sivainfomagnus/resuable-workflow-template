@@ -25,27 +25,8 @@ jobs:
    - name: Login to the Registry
      uses: docker/login-action@v1
      with:
-      registry: https://hub.docker.com
       username: $((secrets.DOCKERHUB_USERNAME))
-      password: $((secrets.DOCKERHUB_ACCESS_TOKEN))
-      
-   - name: Set the tag
-     run: |
-      if [ -z "${{inputs.tag}}"]
-      then
-       echo "final_tag-latest" >> $GITHUB_ENV
-      else
-       echo "final_tag-${{inputs.tag}}" >> $GITHUB_ENV
-      fi
-   - name: Build and Push the image
-     uses: docker/build-push-acton@v2.7.0
-     with:
-      registry: https://hub.docker.com
-      context: .
-      push: true
-      tags: ${{secrets.DOCKERHUB_USERNAME}}/${{inputs.image_name}}:${{env.final_tag}}
-      dockerfile: Sivainfomagnus/resuable-workflow-template/Dockerfile
-      
+      password: $((secrets.DOCKERHUB_ACCESS_TOKEN))   
  do_something_else:
   runs-on: ubuntu-latest
   steps:

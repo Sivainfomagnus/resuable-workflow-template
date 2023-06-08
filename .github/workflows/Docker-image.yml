@@ -14,7 +14,6 @@ jobs:
    - name: Build and Push the image
      uses: docker/build-push-acton@v2
      with:
-      registry: https://hub.docker.com
       context: .
       dockerfile: ./Sivainfomagnus/resuable-workflow-template/Dockerfile
       

@@ -18,5 +18,5 @@ jobs:
  docker:
    uses: Sivainfomagnus/resuable-workflow-template/.github/workflows/Docker-image.yml@main
    secrets:
-    DOCKERHUB_USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
-    DOCKERHUB_ACCESS_TOKEN: ${{secrets.DOCKERHUB_ACCESS_TOKEN}}
+    username: ${{secrets.DOCKERHUB_USERNAME}}
+    password: ${{secrets.DOCKERHUB_ACCESS_TOKEN}}
